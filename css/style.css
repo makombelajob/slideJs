@@ -1,0 +1,86 @@
+img {
+    width: 100%;
+    height: auto;
+}
+h1 {
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
+}
+.diapo {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    cursor: pointer;
+    .elements {
+        position: relative;
+        .element {
+            position: relative;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            &.active {
+                display: block;
+                opacity: 1;
+            }
+
+            figcaption {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgba(255, 255, 255, 0.5);
+                padding: 20px;
+                text-align: center;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    #left,
+    #right {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        cursor: pointer;
+        font-size: 2rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 50%;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    }
+    #left {
+        left: 10px;
+    }
+    #right {
+        right: 10px;
+    }
+    .navigation {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        z-index: 10;
+
+        span {
+            width: 10px;
+            height: 10px;
+            background-color: #9e690c;
+            border-radius: 50%;
+            margin: 0 5px;
+            &:hover {
+                background-color: rgba(135, 177, 226, 0.6);
+            }
+            &.active {
+                background-color: black;
+            }
+        }
+    }
+}
