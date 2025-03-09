@@ -1,55 +1,21 @@
-const right = document.querySelector("#right");
-right.addEventListener("click", avancer);
+This script is used to create a carousel of images or items with automatic and manual navigation. Here is what it does in detail:
+📌 Main features:
 
-// fonction qui permet d'avancer vers la droite
-function avancer() {
-const active = document.querySelector(".active");
-active.classList.remove("active");
-if (active.nextElementSibling) {
-active.nextElementSibling.classList.add("active");
-} else {
-active.parentElement.firstElementChild.classList.add("active");
-}
-function reculer() {
-const active = document.querySelector(".active");
-active.classList.remove("active");
-if (active.previousElementSibling) {
-active.previousElementSibling.classList.add("active");
-} else {
-active.parentElement.lastElementChild.classList.add("active");
-}
-    const span = document.querySelector(".navigation .active");
-    span.classList.remove("active");
-    if(span.nextElementSibling) {
-        span.nextElementSibling.classList.add("active");
-    }else{
-        span.parentElement.firstElementChild.classList.add("active");
-    }
-};
+Manual navigation with left and right buttons
+When the button with the ID #right is clicked, the function forward() is called, which moves to the next item.
+When the button with the ID #left is clicked, the function back() is called, which moves to the previous item.
 
+Auto-scrolling
+An interval of 2 seconds (setInterval(forward, 2000)) automatically advances the items.
+When the mouse hovers over the carousel (mouseenter), the auto-scrolling stops (clearInterval(interval)).
+When the mouse leaves the carousel (mouseleave), the auto-scrolling resumes.
 
-    const span = document.querySelector(".navigation .active");
-    span.classList.remove("active");
-    if (span.nextElementSibling) {
-        span.nextElementSibling.classList.add("active");
-    } else {
-        span.parentElement.firstElementChild.classList.add("active");
-    }
-};
+Update the "active" class
+The currently displayed item has the class .active.
+When moving forward or backward, the .active class is removed from the current item and added to the next/previous one.
+If you reach the end of the list, you move back to the beginning (and vice versa).
 
-const left = document.querySelector("#left");
-left.addEventListener("click", reculer);
+Synchronization with a navigation bar
+There is an update of the .navigation .active elements to indicate which item is currently displayed in the carousel navigation.
 
-// créer une variable qui contient l'ID de l'interval (2000 = 2 sécondes)
-let intervalle = setInterval(avancer,2000);
-
-const diapo = document.querySelector(".diapo");
-// Annuler le defilement automatique
-diapo.addEventListener("mouseenter", function() {
-clearInterval(intervalle);
-});
-
-//Remettre en route le defilement automatique
-diapo.addEventListener("mouseleave", function() {
-intervalle = setInterval(avancer, 2000);
-});
+💡 This script is useful for an image slideshow or an interactive element slider with smooth and intuitive navigation! 🎡
